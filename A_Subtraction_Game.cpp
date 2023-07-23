@@ -11,7 +11,7 @@ int power(int a,int b)
     if(b==0)
     {
         return 0;
-        // github sync test
+        // github sync test lets go
     }
     else
     {

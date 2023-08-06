@@ -85,3 +85,44 @@ signed main()
 
     return 0;
 }
+
+vector<int> result(A + 1, 0);
+    vector<int> pending_work;
+    
+    for (int day = 1; day <= A; ++day) {
+        // Check if there is any pending work that can be completed on this day
+        for (int i = 0; i < pending_work.size(); ++i) {
+            int work_type = pending_work[i];
+            if (B[work_type][1] == day) {
+                // The deadline for this work type has arrived
+                result[day] = work_type + 1;
+                pending_work.erase(pending_work.begin() + i);
+                --i;
+            } else {
+                --B[work_type][2];
+                if (B[work_type][2] == 0) {
+                    // Completed the work on this day
+                    result[day] = work_type + 1;
+                    pending_work.erase(pending_work.begin() + i);
+                    --i;
+                }
+            }
+        }
+        
+        // Check if any new work is given on this day
+        for (int i = 0; i < B.size(); ++i) {
+            if (B[i][0] == day) {
+                pending_work.push_back(i);
+            }
+        }
+    }
+    
+    // Check if all work is completed before their respective deadlines
+    for (int i = 0; i < B.size(); ++i) {
+        if (B[i][2] > 0) {
+            return {-1}; // Not possible to complete all work
+        }
+    }
+    
+    result[0] = -1; // Set the first element to -1
+    return result;

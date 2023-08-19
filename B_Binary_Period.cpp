@@ -4,6 +4,7 @@ using namespace std;
 
 #define int long long
 #define endl '\n' 
+#define runtime() cerr << ((double)clock() / CLOCKS_PER_SEC) << endl;
 
 int power(int a,int b)
 {
@@ -30,9 +31,9 @@ int gcd(int a,int b)
 }
 
 int lcm(int a,int b)
-    {
+{
         return (a*b)/(gcd(a,b));
-    }
+}
 
 vector<int> primefactors(int n)
 {
@@ -45,21 +46,7 @@ vector<int> primefactors(int n)
             n/=i;
         }
     }
-    if(n!=1)
-    factors.push_back(n);
     return factors;
-}
-
-vector<int> prefix_sum_array(vector<int> a)
-{
-    vector<int> ans;
-    int n=sizeof(a)/sizeof(a[0]);
-    ans[0]=0;
-    for(int i=0;i<n;i++)
-    {
-        ans[i]=ans[i]+a[i];
-    }
-    return ans;
 }
 
 signed main()
@@ -70,17 +57,17 @@ signed main()
     cin>>t;
     while(t--)
     {
-        vector<int> v;
-        vector<int> res;
-        for(int i=0;i<5;i++)
+        string s ;
+	    cin >> s ;
+	    sort(s.begin(),s.end()) ;
+	    if (s[0] == s[s.length()-1])
+	    	cout << s << '\n' ;
+        else 
         {
-            cin>>v[i];
-        }
-        res=prefix_sum_array(v);
-        for(int i=0;i<5;i++)
-        {
-            res[i];
-        }
+	    	for (int i = 0 ; i < s.length() ; ++i)
+	    		cout << "01" ;
+	    	cout <<endl;
+	    }
     }
 
     return 0;

@@ -64,6 +64,7 @@ signed main()
     cin>>t;
     while(t--)
     {
+        //new
         int n;
         cin>>n;
         if(solve(n,1))

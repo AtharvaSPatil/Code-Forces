@@ -57,12 +57,14 @@ signed main()
     cin>>t;
     while(t--)
     {
-        int a,b,c,n;
-        cin>>a>>b>>c>>n;
-        if((a+b+c+n)%3==0)
-        cout<<"YES"<<endl;
-        else
+        int a[3],n;
+        cin>>a[0]>>a[1]>>a[2]>>n;
+        sort(a,a+3);
+        n-=2*a[2]-a[1]-a[0];
+        if(n<0 || n%3!=0)
         cout<<"NO"<<endl;
+        else
+        cout<<"YES"<<endl;
     }
 
     return 0;

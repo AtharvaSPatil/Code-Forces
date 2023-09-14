@@ -5,26 +5,22 @@ using namespace std;
 #define int long long
 #define endl '\n' 
 
-
+map<string,int> ms;
 signed main()
 {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    string s1;
-    cin>>s1;
-    int condition = 1;
-    for(int i=1; i<=s1.length(); i++){
-        if(s1[i] == s1[i-1]){
-            condition++;
-            if(condition==7){
-                cout<<"YES"<<endl;
-                return 0;
-            }
-        }else{
-            condition=1;
+ 
+    int n,mx=0,i;
+    string s,ans;
+    cin>>n;
+    for(i=0; i<n; i++)
+    {
+        cin>>s;
+           ms[s]++;
+        if(ms[s]>mx)
+        {
+            mx=ms[s];
+            ans=s;
         }
-        
     }
-    cout<<"NO"<<endl;
-    return 0;
+    cout<<ans<<endl;
 }

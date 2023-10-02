@@ -11,6 +11,7 @@ int power(int a,int b)
     {
         return 0;
     }
+        //minor change
     else
     {
         int value=power(a,b/2);

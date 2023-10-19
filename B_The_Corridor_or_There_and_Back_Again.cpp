@@ -12,6 +12,7 @@ ll binpow(ll a, ll b) {
         return 1;
     long long res = binpow(a, b / 2);
     // minor change
+    // another minor change
     if (b % 2){
         long long temp=((res%M) * (res%M))%M;
         return ((temp%M)*a)%M;

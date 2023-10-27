@@ -50,7 +50,7 @@ vector<int> primefactors(int n)
 
 signed main()
 {
-    //minor change
+    //minor change 2
     ios::sync_with_stdio(0);
     cin.tie(0);
     int t;

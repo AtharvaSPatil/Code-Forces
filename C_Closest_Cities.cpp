@@ -40,6 +40,7 @@ int main() {
                 cout << r[y] - r[x] << endl;
             else
                 cout << l[y] - l[x] << endl;
+                // Change 
         }
     }
     return 0;
